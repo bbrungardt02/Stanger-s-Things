@@ -1,10 +1,17 @@
+import { useState } from "react";
 import "./App.css";
+import RegisterForm from "./components/RegisterForm";
 
 function App() {
-  return <div className="App">Stranger's Things</div>;
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  console.log("Token from App.jsx: ", token);
+  return (
+    <div className="App">
+      <h1>Stranger's Things</h1>
+      <RegisterForm setToken={setToken} />
+    </div>
+  );
 }
 
 export default App;
-
-const COHORT_NAME = "2301-FTB-ET-WEB-AM";
-const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
