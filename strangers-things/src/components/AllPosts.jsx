@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchPosts } from "../api/users";
+import PostCard from "./PostCard";
 
 export default function AllPosts() {
   const navigate = useNavigate();
@@ -9,21 +10,16 @@ export default function AllPosts() {
   useEffect(() => {
     async function getPosts() {
       const postsList = await fetchPosts();
+      console.log("testing getPost",postsList);
       setPosts(postsList.data.posts);
     }
     getPosts();
   }, []);
   return (
     <div>
-      {posts.map((post) => {
-        return (
-          <div key={post.id}>
-            <p className="title">{post.title}</p>
-            <p className="author">{post.author}</p>
-            <p className="description">{post.description}</p>
-          </div>
-        );
-      })}
+     {posts.map((post)=>{
+      return(<PostCard/>);
+     })}
     </div>
   );
 }

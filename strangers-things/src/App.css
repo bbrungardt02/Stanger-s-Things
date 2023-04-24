@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+.postcardcontainer{
+  outline-style: dashed;
+  outline-color: red;
+  width:25%;
+
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
