@@ -38,3 +38,13 @@ export async function fetchMe(token) {
     console.error(error);
   }
 }
+
+export async function fetchPosts() {
+  try {
+    const response = await fetch(`${BASE_URL}/posts`);
+    const postsList = await response.json();
+    return postsList;
+  } catch (error) {
+    console.error(error);
+  }
+}
