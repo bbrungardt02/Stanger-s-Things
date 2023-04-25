@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import "./App.css";
+import PostForm from "./components/auth/PostForm";
+import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/auth/RegisterForm";
 import useAuth from "./hooks/useAuth";
 import Nav from "./components/auth/Nav";
@@ -15,10 +16,16 @@ function App() {
       <Nav />
       <Routes>
         <Route className="allPosts" path="/" element={<AllPosts />} />
+        <Route className="postForm" path="/postForm" element={<PostForm />} />
         <Route
           className="registerForm"
           path="/RegisterForm"
           element={<RegisterForm />}
+        />
+        <Route
+          className="LoginForm"
+          path="/LoginForm"
+          element={<LoginForm />}
         />
       </Routes>
     </div>

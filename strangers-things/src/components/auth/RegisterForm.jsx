@@ -23,6 +23,7 @@ export default function RegisterForm() {
 
   return (
     <div>
+      <h1>Register User</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

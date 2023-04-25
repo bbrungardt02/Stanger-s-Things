@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { fetchPosts } from "../api/users";
-import PostCard from "./PostCard";
 
 export default function AllPosts() {
-  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   console.log(posts);
   useEffect(() => {
@@ -17,14 +14,18 @@ export default function AllPosts() {
   }, []);
   return (
     <div>
+      <h1>All Posts</h1>
       {posts.map((post) => {
         return (
-          <div className="cardcontents">
+          <div key={post._id} className="cardcontents">
             {/* <div>insert image here</div> */}
-            <h3>Title:{post.title}</h3>
-            <p>discription:{post.description}</p>
-            <p>distance: {post.distance}</p>
-            <p>price{post.price}</p>
+            <h3>{post.title}</h3>
+            <p>User: {post.username}</p>
+            <p>Description: {post.description}</p>
+            <p>Price: {post.price}</p>
+            <p>Created at: {post.createdAt}</p>
+            <p>Updated at: {post.updatedAt}</p>
+            <p>Location: {post.location}</p>
           </div>
         );
       })}
