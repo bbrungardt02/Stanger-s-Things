@@ -7,7 +7,6 @@ export default function AllPosts() {
   useEffect(() => {
     async function getPosts() {
       const postsList = await fetchPosts();
-      console.log("testing getPost", postsList);
       setPosts(postsList.data.posts);
     }
     getPosts();
@@ -20,7 +19,7 @@ export default function AllPosts() {
           <div key={post._id} className="cardcontents">
             {/* <div>insert image here</div> */}
             <h3>{post.title}</h3>
-            <p>User: {post.username}</p>
+            <p>User: {post.author.username}</p>
             <p>Description: {post.description}</p>
             <p>Price: {post.price}</p>
             <p>Created at: {post.createdAt}</p>

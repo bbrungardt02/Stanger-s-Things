@@ -12,10 +12,12 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     async function getMe() {
       const APIResponse = await fetchMe(token);
-      setUser(APIResponse);
+      setUser(APIResponse.data);
     }
     if (token) {
       getMe();
+    } else {
+      setUser({});
     }
   }, [token]);
 

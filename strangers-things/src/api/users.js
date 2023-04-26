@@ -49,7 +49,7 @@ export async function fetchPosts() {
   }
 }
 
-export async function loginUser() {
+export async function loginUser(username, password) {
   try {
     const response = await fetch(`${BASE_URL}/users/login`, {
       method: "POST",
@@ -64,6 +64,7 @@ export async function loginUser() {
       }),
     });
     const result = await response.json();
+    console.log("Result from logged in user: ", result);
     return result;
   } catch (error) {
     console.error(error);
