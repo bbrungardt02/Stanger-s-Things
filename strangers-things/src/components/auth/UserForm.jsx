@@ -30,7 +30,17 @@ export default function UserForm() {
             <p>Active: {activated}</p>
             <p>Description: {post.description}</p>
             <p>Price: {post.price}</p>
-            <p>Messages: {post.messages}</p>
+            <div>
+              Messages:
+              {post.messages.map((message) => {
+                return (
+                  <div key={message._id}>
+                    <p>From: {message.fromUser.username}</p>
+                    <p>Content: {message.content}</p>
+                  </div>
+                );
+              })}
+            </div>
             <p>Created at: {post.createdAt}</p>
             <p>Updated at: {post.updatedAt}</p>
             <p>Location: {post.location}</p>
