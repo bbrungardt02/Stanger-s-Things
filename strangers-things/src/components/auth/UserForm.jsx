@@ -17,10 +17,17 @@ export default function UserForm() {
       <h1>My Posts</h1>
       {posts.map((post) => {
         const POST_ID = post._id;
+        let activated = "";
+        if (post.active === true) {
+          activated = "True";
+        } else {
+          activated = "False";
+        }
         return (
           <div key={post._id} className="cardcontents">
             {/* <div>insert image here</div> */}
             <h3>{post.title}</h3>
+            <p>Active: {activated}</p>
             <p>Description: {post.description}</p>
             <p>Price: {post.price}</p>
             <p>Messages: {post.messages}</p>
