@@ -49,7 +49,7 @@ function App() {
         <Route className="userForm" path="/userForm" element={<UserForm />} />
         <Route path="/register" element={<AuthForm />} />
         <Route path="/login" element={<AuthForm />} />
-        <Route path="/MessageForm" element={<MessageForm />} />
+        <Route path="/MessageForm/:postId" element={<MessageForm />} />
       </Routes>
     </div>
   );

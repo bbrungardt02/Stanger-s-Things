@@ -139,9 +139,9 @@ export async function deletePost(token, POST_ID) {
   }
 }
 
-export async function messagePost(token) {
+export async function messagePost(content, token, postId) {
   try {
-    const response = await fetch(`${BASE_URL}/posts/${POST_ID}/messages`, {
+    const response = await fetch(`${BASE_URL}/posts/${postId}/messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
