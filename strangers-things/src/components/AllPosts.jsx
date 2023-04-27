@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchPosts } from "../api/users";
+import { Link } from "react-router-dom";
 
 export default function AllPosts() {
   const [posts, setPosts] = useState([]);
@@ -25,6 +26,7 @@ export default function AllPosts() {
             <p>Created at: {post.createdAt}</p>
             <p>Updated at: {post.updatedAt}</p>
             <p>Location: {post.location}</p>
+            <Link to="/MessageForm">Message</Link>
           </div>
         );
       })}

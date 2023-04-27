@@ -71,22 +71,6 @@ export async function loginUser(username, password) {
   }
 }
 
-export async function myData(token) {
-  try {
-    const response = await fetch(`${BASE_URL}/users/me`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const result = await response.json();
-    console.log(result);
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 export async function createPost(title, description, price, token) {
   try {
     const response = await fetch(`${BASE_URL}/posts`, {
@@ -112,12 +96,9 @@ export async function createPost(title, description, price, token) {
   }
 }
 
-const updatePost = async () => {
+export async function updatePost(token) {
   try {
-    // You will need to insert a variable into the fetch template literal
-    // in order to make the POST_ID dynamic.
-    // 5e8d1bd48829fb0017d2233b is just for demonstration.
-    const response = await fetch(`${BASE_URL}/posts/5e8d1bd48829fb0017d2233b`, {
+    const response = await fetch(`${BASE_URL}/posts/${POST_ID}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -139,7 +120,7 @@ const updatePost = async () => {
   } catch (err) {
     console.error(err);
   }
-};
+}
 
 export async function deletePost(title, description, price) {
   try {

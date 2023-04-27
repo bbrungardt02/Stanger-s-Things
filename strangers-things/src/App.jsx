@@ -1,7 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import UserForm from "./components/auth/UserForm";
 import PostForm from "./components/auth/PostForm";
 import AuthForm from "./components/auth/AuthForm";
+import MessageForm from "./components/auth/MessageForm";
 import useAuth from "./hooks/useAuth";
 import AllPosts from "./components/AllPosts";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +24,9 @@ function App() {
         <Link className="nav" to="/PostForm">
           Post Form
         </Link>
+        <Link className="nav" to="/UserForm">
+          My Page
+        </Link>
         <Link className="nav" to="/register">
           Register
         </Link>
@@ -41,8 +46,10 @@ function App() {
       <Routes>
         <Route className="allPosts" path="/" element={<AllPosts />} />
         <Route className="postForm" path="/postForm" element={<PostForm />} />
+        <Route className="userForm" path="/userForm" element={<UserForm />} />
         <Route path="/register" element={<AuthForm />} />
         <Route path="/login" element={<AuthForm />} />
+        <Route path="/MessageForm" element={<MessageForm />} />
       </Routes>
     </div>
   );
