@@ -26,9 +26,11 @@ export default function AllPosts() {
             <p>Created at: {post.createdAt}</p>
             <p>Updated at: {post.updatedAt}</p>
             <p>Location: {post.location}</p>
-            <Link to={`/MessageForm/${post._id}`}>
-              Message {post.author.username}
-            </Link>
+            <button>
+              <Link to={`/MessageForm/${post._id}`}>
+                Message {post.author.username}
+              </Link>
+            </button>
           </div>
         );
       })}

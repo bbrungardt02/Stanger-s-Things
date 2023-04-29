@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Stranger's Things</h1>
-      {token ? <p>Welcome {user.username}</p> : null}
+      <h2>{token ? <p>Welcome {user.username}</p> : null}</h2>
       <div>
         <Link className="nav" to="/">
           All Posts
