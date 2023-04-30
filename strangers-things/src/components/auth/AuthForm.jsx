@@ -48,7 +48,9 @@ export default function AuthForm() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button>{pathname === "/login" ? "Login" : "Register"}</button>
+        <button id="button1">
+          {pathname === "/login" ? "Login" : "Register"}
+        </button>
       </form>
     </div>
   );

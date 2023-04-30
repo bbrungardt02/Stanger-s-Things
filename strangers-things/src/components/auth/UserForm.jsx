@@ -46,6 +46,7 @@ export default function UserForm() {
               <p>Updated at: {post.updatedAt}</p>
               <p>Location: {post.location}</p>
               <button
+                id="button1"
                 onClick={async () => {
                   await deletePost(token, POST_ID);
                   const response = await fetchMe(token);
