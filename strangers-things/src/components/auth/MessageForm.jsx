@@ -13,7 +13,8 @@ export default function PostForm() {
     <div className="messagePost">
       <h1 className="messageFormTitle">Send Post Message</h1>
       <form
-        className="messagePostForm"
+        className="gradient-border"
+        id="box1"
         onSubmit={async (e) => {
           e.preventDefault();
           await messagePost(content, token, postId);

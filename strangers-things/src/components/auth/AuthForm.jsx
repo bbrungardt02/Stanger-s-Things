@@ -33,7 +33,7 @@ export default function AuthForm() {
   return (
     <div>
       <h1>Authorize User</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="gradient-border" id="box1" onSubmit={handleSubmit}>
         <input
           type="text"
           name="username"

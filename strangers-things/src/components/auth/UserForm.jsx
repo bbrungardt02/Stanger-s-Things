@@ -24,39 +24,41 @@ export default function UserForm() {
           activated = "False";
         }
         return (
-          <div key={post._id} className="cardcontents">
-            {/* <div>insert image here</div> */}
-            <h3>{post.title}</h3>
-            <p>Active: {activated}</p>
-            <p>Description: {post.description}</p>
-            <p>Price: {post.price}</p>
-            <div>
-              Messages:
-              {post.messages.map((message) => {
-                return (
-                  <div key={message._id}>
-                    <p>From: {message.fromUser.username}</p>
-                    <p>Content: {message.content}</p>
-                  </div>
-                );
-              })}
+          <div className="parentElement">
+            <div key={post._id} className="gradient-border" id="box">
+              {/* <div>insert image here</div> */}
+              <h3>{post.title}</h3>
+              <p>Active: {activated}</p>
+              <p>Description: {post.description}</p>
+              <p>Price: {post.price}</p>
+              <div>
+                Messages:
+                {post.messages.map((message) => {
+                  return (
+                    <div key={message._id}>
+                      <p>From: {message.fromUser.username}</p>
+                      <p>Content: {message.content}</p>
+                    </div>
+                  );
+                })}
+              </div>
+              <p>Created at: {post.createdAt}</p>
+              <p>Updated at: {post.updatedAt}</p>
+              <p>Location: {post.location}</p>
+              <button
+                onClick={async () => {
+                  await deletePost(token, POST_ID);
+                  const response = await fetchMe(token);
+                  if (response.success) {
+                    setPosts(response.data.posts);
+                  } else {
+                    setError(response.error);
+                  }
+                }}
+              >
+                Delete Post
+              </button>
             </div>
-            <p>Created at: {post.createdAt}</p>
-            <p>Updated at: {post.updatedAt}</p>
-            <p>Location: {post.location}</p>
-            <button
-              onClick={async () => {
-                await deletePost(token, POST_ID);
-                const response = await fetchMe(token);
-                if (response.success) {
-                  setPosts(response.data.posts);
-                } else {
-                  setError(response.error);
-                }
-              }}
-            >
-              Delete Post
-            </button>
           </div>
         );
       })}

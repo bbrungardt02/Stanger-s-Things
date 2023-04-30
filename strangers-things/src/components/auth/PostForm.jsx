@@ -14,7 +14,8 @@ export default function PostForm() {
     <div className="createPost">
       <h1 className="PostFormTitle">Create Post</h1>
       <form
-        className="createPostForm"
+        className="gradient-border"
+        id="box1"
         onSubmit={async (e) => {
           e.preventDefault();
           await createPost(title, description, price, token);
